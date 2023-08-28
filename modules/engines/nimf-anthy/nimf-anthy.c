@@ -1699,7 +1699,7 @@ nimf_anthy_get_method_infos ()
   gint             n_methods = G_N_ELEMENTS (methods);
   gint             i;
 
-  infos = g_malloc (sizeof (NimfMethodInfo *) * n_methods + 1);
+  infos = g_malloc (sizeof (NimfMethodInfo *) * (n_methods + 1));
 
   for (i = 0; i < n_methods; i++)
   {
@@ -1728,7 +1728,7 @@ nimf_anthy_get_n_input_mode_list ()
   gint             n_methods = G_N_ELEMENTS (modes);
   gint             i;
 
-  infos = g_malloc (sizeof (NimfMethodInfo *) * n_methods + 1);
+  infos = g_malloc (sizeof (NimfMethodInfo *) * (n_methods + 1));
 
   for (i = 0; i < n_methods; i++)
   {

@@ -120,6 +120,10 @@ test_nimf_m17n_available_languages ()
     if (!M17N_CHECK_VERSION (1, 8, 0) && !g_strcmp0 (strv[0], "ua"))
       strv[0][1] = 'k';
 
+	if (g_str_equal (strv[0], "sat")) {
+		g_print ("method_idddd: %s\n", infos[i]->method_id);
+//	g_print ("code table : code = %s\n", strv[0]);
+	}
     g_hash_table_add (code_table, g_strdup (strv[0]));
 
     g_strfreev (strv);
@@ -139,9 +143,13 @@ test_nimf_m17n_available_languages ()
           !g_strcmp0 (filename, "nimf-m17n-hu.c"))
         continue;
 
-      g_print ("Check if %s available.\n", filename);
+//      g_print ("Check if %s available.\n", filename);
       code = g_strndup (strlen ("nimf-m17n-") + filename,
                         strlen (filename) - strlen (".c") - strlen ("nimf-m17n-"));
+
+if (g_str_equal (code, "sat"))
+	g_print ("c_table addeddddddddddddddddd: %s\n", code);
+
       g_hash_table_add (c_table, code);
       g_assert_true (g_hash_table_contains (code_table, code));
     }
@@ -161,9 +169,13 @@ test_nimf_m17n_available_languages ()
           !g_strcmp0 (filename, "nimf-m17n-hu.svg"))
         continue;
 
-      g_print ("Check if %s is available.\n", filename);
+//      g_print ("Check if %s is available.\n", filename);
       code = g_strndup (strlen ("nimf-m17n-") + filename,
                         strlen (filename) - strlen (".svg") - strlen ("nimf-m17n-"));
+
+if (g_str_equal (code, "sat"))
+	g_print ("icon_table addeddddddddddddddddd: %s\n", code);
+
       g_hash_table_add (icon_table, code);
       g_assert_true (g_hash_table_contains (code_table, code));
     }
@@ -182,8 +194,16 @@ test_nimf_m17n_available_languages ()
     if (!g_strcmp0 (key, "en") ||
         !g_strcmp0 (key, "ja") ||
         !g_strcmp0 (key, "ko") ||
-        !g_strcmp0 (key, "zh"))
+        !g_strcmp0 (key, "zh") ||
+        !g_strcmp0 (key, "new") ||
+        !g_strcmp0 (key, "doi") ||
+        !g_strcmp0 (key, "mni") ||
+        !g_strcmp0 (key, "brx") ||
+        !g_strcmp0 (key, "kok") ||
+        !g_strcmp0 (key, "sat"))
       continue;
+
+g_print ("ffffffffffffffffffff:%s\n", (const gchar *)key);
 
     g_assert_nonnull (g_hash_table_lookup (c_table, key));
     g_assert_nonnull (g_hash_table_lookup (icon_table, key));

@@ -342,7 +342,7 @@ static XIMExt *MakeExtensionList (NimfXim *xim,
             ext_list[i].minor_opcode = im_ext[i].minor_opcode;
             ext_list[i].length = im_ext[i].length;
             ext_list[i].name = malloc (im_ext[i].length + 1);
-            strcpy (ext_list[i].name, im_ext[i].name);
+            g_strlcpy (ext_list[i].name, im_ext[i].name, im_ext[i].length + 1);
         }
         /*endfor*/
     }
@@ -360,7 +360,7 @@ static XIMExt *MakeExtensionList (NimfXim *xim,
                     ext_list[n].minor_opcode = im_ext[i].minor_opcode;
                     ext_list[n].length = im_ext[i].length;
                     ext_list[n].name = malloc (im_ext[i].length + 1);
-                    strcpy (ext_list[n].name, im_ext[i].name);
+                    g_strlcpy (ext_list[n].name, im_ext[i].name, im_ext[i].length + 1);
                     n++;
                     break;
                 }

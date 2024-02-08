@@ -507,7 +507,7 @@ static int GetICValue (NimfXim *xim,
                     attr_ret[n].attribute_id = xic_attr[j].attribute_id;
                     attr_ret[n].name_length = xic_attr[j].length;
                     attr_ret[n].name = malloc (xic_attr[j].length + 1);
-		    strcpy(attr_ret[n].name, xic_attr[j].name);
+		    g_strlcpy(attr_ret[n].name, xic_attr[j].name, xic_attr[j].length + 1);
                     attr_ret[n].type = xic_attr[j].type;
                     n++;
                     i++;
@@ -528,7 +528,7 @@ static int GetICValue (NimfXim *xim,
                 attr_ret[n].attribute_id = xic_attr[j].attribute_id;
                 attr_ret[n].name_length = xic_attr[j].length;
                 attr_ret[n].name = malloc (xic_attr[j].length + 1);
-		strcpy(attr_ret[n].name, xic_attr[j].name);
+		g_strlcpy(attr_ret[n].name, xic_attr[j].name, xic_attr[j].length + 1);
                 attr_ret[n].type = xic_attr[j].type;
                 n++;
                 break;

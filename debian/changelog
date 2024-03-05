@@ -1,3 +1,11 @@
+nimf (2024.03.05+grm4u1) unstable; urgency=medium
+
+  [ cjheo ]
+  * [76d3145f] Rebase to debian 12
+  * [e70601f9] Fixed security vulnerability (CWE-120)
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Tue, 05 Mar 2024 10:50:06 +0900
+
 nimf (2023.06.30+grm3u1) unstable; urgency=medium
 
   [ boyeon.choi ]

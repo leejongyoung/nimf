@@ -159,6 +159,7 @@ dnl ***************************************************************************
 dnl  Check for im-nimf-gtk
 dnl ***************************************************************************
 
+PKG_CHECK_MODULES(IM_NIMF_GTK4_DEPS, [gtk4 gtk4-x11])
 PKG_CHECK_MODULES(IM_NIMF_GTK3_DEPS, [gtk+-3.0 gdk-x11-3.0])
 PKG_CHECK_MODULES(IM_NIMF_GTK2_DEPS, [gtk+-2.0])
 
@@ -170,6 +171,11 @@ case `uname -m` in
     BITS=32
     ;;
 esac
+
+GTK4_LIBDIR=`pkg-config --variable=libdir gtk4`
+GTK4_BINARY_VERSION=`pkg-config --variable=gtk_binary_version gtk4`
+AC_SUBST(GTK4_LIBDIR)
+AC_SUBST(GTK4_BINARY_VERSION)
 
 GTK3_LIBDIR=`pkg-config --variable=libdir gtk+-3.0`
 GTK3_BINARY_VERSION=`pkg-config --variable=gtk_binary_version gtk+-3.0`

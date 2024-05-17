@@ -10,12 +10,12 @@
     <key type="b" name="hook-gdk-event-key">
       <default>false</default>
       <summary>Hooking GDK key events</summary>
-      <description>Filter all key events before delivering them normally, which avoids bugs of many applications</description>
+      <description>Filter all key events before delivering them normally, which avoids bugs of many applications. This option does not work in applications based on GTK4.</description>
     </key>
     <key type="b" name="reset-on-gdk-button-press-event">
       <default>false</default>
       <summary>Reset when clicking the mouse button</summary>
-      <description>Reset when clicking the mouse button</description>
+      <description>Reset when clicking the mouse button. This option does not work in applications based on GTK4.</description>
     </key>
   </schema>
 </schemalist>

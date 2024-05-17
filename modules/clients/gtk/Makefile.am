@@ -6,6 +6,16 @@ AM_CFLAGS = \
 	-I$(top_srcdir)/libnimf \
 	-DG_LOG_DOMAIN=\"nimf\"
 
+# for gtk4
+
+gtk4_im_moduledir = $(GTK4_LIBDIR)/gtk-4.0/$(GTK4_BINARY_VERSION)/immodules
+gtk4_im_module_LTLIBRARIES = libim-nimf.la
+
+libim_nimf_la_SOURCES  = im-nimf-gtk4.c
+libim_nimf_la_CFLAGS   = $(IM_NIMF_GTK4_DEPS_CFLAGS) $(AM_CFLAGS)
+libim_nimf_la_LDFLAGS  = $(IM_NIMF_GTK4_DEPS_LIBS) -avoid-version -module
+libim_nimf_la_LIBADD   = $(top_builddir)/libnimf/libnimf.la
+
 # for gtk3
 
 gtk3_im_moduledir = $(GTK3_LIBDIR)/gtk-3.0/$(GTK3_BINARY_VERSION)/immodules
@@ -29,12 +39,15 @@ im_nimf_gtk2_la_LIBADD   = $(top_builddir)/libnimf/libnimf.la
 DISTCLEANFILES = Makefile.in
 
 install-data-hook:
+	chmod -x $(DESTDIR)$(gtk4_im_moduledir)/libim-nimf.so
 	chmod -x $(DESTDIR)$(gtk3_im_moduledir)/im-nimf-gtk3.so
 	chmod -x $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.so
+	rm -f $(DESTDIR)$(gtk3_im_moduledir)/libim-nimf.la
 	rm -f $(DESTDIR)$(gtk3_im_moduledir)/im-nimf-gtk3.la
 	rm -f $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.la
 
 uninstall-hook:
+	rm -f $(DESTDIR)$(gtk4_im_moduledir)/libim-nimf.so
 	rm -f $(DESTDIR)$(gtk3_im_moduledir)/im-nimf-gtk3.so
 	rm -f $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.so
 	$(GTK_QUERY_IMMODULES2) --update-cache

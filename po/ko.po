@@ -275,15 +275,17 @@ msgstr "GDK 키 이벤트 후킹하기"
 #: ../modules/clients/gtk/org.nimf.clients.gtk.gschema.xml.h:5
 msgid ""
 "Filter all key events before delivering them normally, which avoids bugs of "
-"many applications"
+"many applications. This option does not work in applications based on GTK4."
 msgstr "모든 키 이벤트를 전달하기 전에 그것들을 투과시킵니다."
 " 이것은 여러 응용 프로그램의 버그를 회피합니다."
+" 이 옵션은 GTK4 응용프로그램에서는 동작하지 않습니다."
 
 #: ../modules/clients/gtk/org.nimf.clients.gtk.gschema.xml.h:6
 #: ../modules/clients/qt4/org.nimf.clients.qt4.gschema.xml.h:4
 #: ../modules/clients/qt5/org.nimf.clients.qt5.gschema.xml.h:4
-msgid "Reset when clicking the mouse button"
-msgstr "마우스 버튼을 클릭할 때 리셋합니다"
+msgid "Reset when clicking the mouse button. This option does not work in applications based on GTK4."
+msgstr "마우스 버튼을 클릭할 때 리셋합니다."
+" 이 옵션은 GTK4 응용프로그램에서는 동작하지 않습니다."
 
 #: ../modules/clients/qt4/org.nimf.clients.qt4.gschema.xml.h:1
 msgid "'Qt4'"

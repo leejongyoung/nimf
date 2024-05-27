@@ -1,3 +1,11 @@
+nimf (2024.05.27+grm4u1) unstable; urgency=medium
+
+  [ cjheo ]
+  * [38eca3ca] Remove debug code
+  * [5b079210] GTK4 입력모듈(libim-nimf.so) 개발
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Mon, 27 May 2024 18:03:20 +0900
+
 nimf (2024.03.05+grm4u1) unstable; urgency=medium
 
   [ cjheo ]

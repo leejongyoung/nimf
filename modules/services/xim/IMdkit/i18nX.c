@@ -227,10 +227,10 @@ static char *MakeNewAtom (CARD16 connect_id, char *atomName)
 {
     static uint8_t sequence = 0;
 
-    sprintf (atomName,
-             "_server%d_%d",
-             connect_id,
-             ((sequence > 20)  ?  (sequence = 0)  :  (0x1f & sequence)));
+    snprintf (atomName, 16,
+              "_server%d_%d",
+              connect_id,
+              ((sequence > 20)  ?  (sequence = 0)  :  (0x1f & sequence)));
     sequence++;
     return atomName;
 }

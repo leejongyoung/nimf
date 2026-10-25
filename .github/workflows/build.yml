@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: debian:stable
+    container: debian:bookworm
     steps:
       - name: Install git
         run: apt-get update && apt-get install -y git

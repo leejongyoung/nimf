@@ -1,0 +1,20 @@
+name: build
+on:
+  pull_request:
+    branches: [work]
+  push:
+    branches: [work]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: debian:stable
+    steps:
+      - name: Install git
+        run: apt-get update && apt-get install -y git
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          apt-get install -y devscripts equivs
+          mk-build-deps -i -r -t 'apt-get -y' debian/control
+      - name: Build binary package
+        run: dpkg-buildpackage -b -us -uc

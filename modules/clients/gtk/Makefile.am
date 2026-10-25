@@ -42,7 +42,7 @@ install-data-hook:
 	chmod -x $(DESTDIR)$(gtk4_im_moduledir)/libim-nimf.so
 	chmod -x $(DESTDIR)$(gtk3_im_moduledir)/im-nimf-gtk3.so
 	chmod -x $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.so
-	rm -f $(DESTDIR)$(gtk3_im_moduledir)/libim-nimf.la
+	rm -f $(DESTDIR)$(gtk4_im_moduledir)/libim-nimf.la
 	rm -f $(DESTDIR)$(gtk3_im_moduledir)/im-nimf-gtk3.la
 	rm -f $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.la
 

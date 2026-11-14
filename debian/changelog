@@ -1,3 +1,9 @@
+nimf (2026.10.03+grm4u1) unstable; urgency=medium
+
+  * [#1433] Bound-check the cursor in hanja lookup.
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Sat, 03 Oct 2026 20:31:45 +0900
+
 nimf (2024.05.27+grm4u1) unstable; urgency=medium
 
   [ cjheo ]

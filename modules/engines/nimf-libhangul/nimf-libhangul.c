@@ -422,7 +422,7 @@ nimf_libhangul_filter_event (NimfEngine    *engine,
   {
     if (nimf_candidatable_is_visible (hangul->candidatable) == FALSE)
     {
-      gchar item[4];
+      gchar item[8];
       const char *key = hangul->preedit_string;
       gboolean use_preedit;
 
@@ -439,8 +439,11 @@ nimf_libhangul_filter_event (NimfEngine    *engine,
 
         length = g_utf8_strlen (text, -1);
 
-        if (length == 0)
+        if (cursor_pos < 0 || cursor_pos >= length)
+        {
+          g_free (text);
           return FALSE;
+        }
 
         gchar *p = g_utf8_offset_to_pointer (text, cursor_pos);
         g_utf8_strncpy (item, p, 1);
@@ -449,9 +452,6 @@ nimf_libhangul_filter_event (NimfEngine    *engine,
           key = item;
 
         g_free (text);
-
-        if (length == cursor_pos)
-          return FALSE;
       }
 
       hanja_list_delete (hangul->hanja_list);

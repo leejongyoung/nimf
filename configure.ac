@@ -188,6 +188,18 @@ if test "x$GTK_QUERY_IMMODULES3" = "xno"; then
   AC_MSG_ERROR([gtk-query-immodules-3.0 or gtk-query-immodules-3.0-$BITS not found])
 fi
 
+# GTK4 immodule cache update tool
+GTK4_LIBDIR=`pkg-config --variable=libdir gtk4`
+GTK4_BINARY_VERSION=`pkg-config --variable=gtk_binary_version gtk4`
+AC_SUBST(GTK4_LIBDIR)
+AC_SUBST(GTK4_BINARY_VERSION)
+AC_PATH_PROGS([GTK_QUERY_IMMODULES4],
+              [gtk-query-immodules-4.0 gtk-query-immodules-4.0-$BITS], [no],
+              [/usr/bin:$GTK4_LIBDIR/libgtk-4-0])
+if test "x$GTK_QUERY_IMMODULES4" = "xno"; then
+  AC_MSG_WARN([gtk-query-immodules-4.0 not found; GTK4 immodule cache update will be skipped])
+fi
+
 GTK2_LIBDIR=`pkg-config --variable=libdir gtk+-2.0`
 GTK2_BINARY_VERSION=`pkg-config --variable=gtk_binary_version gtk+-2.0`
 AC_SUBST(GTK2_LIBDIR)

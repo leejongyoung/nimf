@@ -52,3 +52,4 @@ uninstall-hook:
 	rm -f $(DESTDIR)$(gtk2_im_moduledir)/im-nimf-gtk2.so
 	$(GTK_QUERY_IMMODULES2) --update-cache
 	$(GTK_QUERY_IMMODULES3) --update-cache
+	$(GTK_QUERY_IMMODULES4) --update-cache
